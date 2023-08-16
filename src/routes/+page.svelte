@@ -50,7 +50,7 @@
 			{#if data.item.videos}
 				<li>
 					<div><a href={data.item.videos[0].uri} target="_blank">{data.item.videos[0].uri}</a></div>
-					<div>
+					<div class="video-container">
 						<iframe width="560" height="315" src={"https://www.youtube.com/embed/" + new URL(data.item.videos[0].uri).searchParams.get("v")} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					</div>
 				</li>
@@ -70,6 +70,21 @@
 		justify-content: center;
 		align-items: center;
 		flex: 0.6;
+	}
+
+	.video-container {
+		position: relative;
+		padding-bottom: 56.25%;
+		height: 0;
+		overflow: hidden;
+	}
+
+	.video-container iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 	}
 
 	/*h1 {*/
